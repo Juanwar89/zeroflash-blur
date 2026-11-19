@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroFlash Blur — Screen Share Privacy for Chrome</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="icon32.png" alt="ZeroFlash Blur" />
+          <span>ZeroFlash Blur</span>
+        </div>
+        <div class="nav-actions">
+          <a href="#sandbox" data-i18n="navDemo">Live Sandbox</a>
+          <a href="#pricing" data-i18n="navPricing">Features &amp; Support</a>
+          <button id="langBtn" class="lang-btn">ES</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="pill" data-i18n="heroPill">Chrome Extension • Zero-Flash Architecture</div>
+        <h1 data-i18n="heroTitle">Share your screen without leaking balances, emails, or API keys.</h1>
+        <p class="hero-sub" data-i18n="heroSub">
+          Click-to-blur any element, auto-hide sensitive data on live calls, and reload dashboards
+          with zero split-second data flashes — without breaking React or modern web apps.
+        </p>
+        <div class="hero-cta">
+          <a href="#sandbox" class="btn btn-primary" data-i18n="ctaPrimary">Try Interactive Sandbox</a>
+          <a href="#pricing" class="btn btn-ghost" data-i18n="ctaSecondary">See Included Features</a>
+        </div>
+        <div class="trust-row">
+          <span data-i18n="trust1">✓ 100% Local detection (no data leaves your browser)</span>
+          <span data-i18n="trust2">✓ All features free — no paywall</span>
+          <span data-i18n="trust3">✓ No subscription fatigue</span>
+        </div>
+      </section>
+
+      <section class="pain-grid">
+        <article class="card">
+          <h3 data-i18n="feat1Title">Zero-Flash on Reload</h3>
+          <p data-i18n="feat1Body">
+            Saved CSS rules inject before first paint so sensitive numbers never flash for half a second during live Zoom or Loom recordings.
+          </p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="feat2Title">SPA-Safe Engine</h3>
+          <p data-i18n="feat2Body">
+            Built with non-destructive styling and CSS Highlight ranges so Stripe, Gmail, Notion, and React apps never crash.
+          </p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="feat3Title">100% Free &amp; Open</h3>
+          <p data-i18n="feat3Body">
+            Click-to-blur, Panic Shield, persistent Zero-Flash site rules, and smart auto-detection are all unlocked for free with zero accounts required.
+          </p>
+        </article>
+      </section>
+
+      <!-- Interactive Sandbox for Testing the Extension -->
+      <section id="sandbox" class="sandbox-wrap">
+        <div class="sandbox-head">
+          <div>
+            <h2 data-i18n="sandboxTitle">Interactive Extension Test Sandbox</h2>
+            <p class="muted" data-i18n="sandboxSub">
+              Load ZeroFlash Blur in Chrome and test Click-to-Blur, Auto-Detect, Reload Persistence, and SPA Updates right here.
+            </p>
+          </div>
+          <button id="addDynamicRowBtn" class="btn btn-secondary" data-i18n="addRowBtn">
+            + Simulate SPA Row Update
+          </button>
+        </div>
+
+        <div class="mock-dashboard">
+          <div class="kpi-row">
+            <div class="kpi-card">
+              <span class="kpi-label" data-i18n="kpi1">Available Payout Balance</span>
+              <strong class="kpi-val">$18,420.50 USD</strong>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label" data-i18n="kpi2">Monthly Net Revenue</span>
+              <strong class="kpi-val">COP 24.850.000</strong>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label" data-i18n="kpi3">Support Contact</span>
+              <strong class="kpi-val">founder.private@acme-demo.io</strong>
+            </div>
+          </div>
+
+          <div class="secret-box">
+            <div>
+              <span class="kpi-label" data-i18n="secretLabel">Production Webhook / API Key</span>
+              <code id="demoSecretEl"></code>
+            </div>
+            <div>
+              <span class="kpi-label" data-i18n="cardLabel">Corporate Test Card</span>
+              <code id="demoCardEl">4111 1111 1111 1111</code>
+            </div>
+          </div>
+
+          <p class="mixed-paragraph">
+            Inline test paragraph: Please contact <span>billing.vip@acme-demo.io</span> or call
+            <span>+1 (555) 234-5678</span> regarding invoice total <span>$3,290.00</span> before Friday.
+          </p>
+
+          <table class="mock-table">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="sandboxTableBody">
+              <tr>
+                <td>Camila Rojas</td>
+                <td>camila.rojas@client-demo.co</td>
+                <td>+57 300 456 7890</td>
+                <td>$1,250.00</td>
+              </tr>
+              <tr>
+                <td>Marcus Vance</td>
+                <td>marcus@vance-studio.io</td>
+                <td>+1 415 555 0199</td>
+                <td>$4,800.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing">
+        <div class="price-card featured">
+          <div class="best-badge" data-i18n="proPopular">ALL FEATURES INCLUDED</div>
+          <h3 data-i18n="freeTierTitle">ZeroFlash Blur Free</h3>
+          <div class="price">$0 <span data-i18n="onceLabel">100% free</span></div>
+          <ul>
+            <li data-i18n="free1">Click-to-blur any element + Instant Panic Shield (Alt+Shift+P)</li>
+            <li data-i18n="pro1">Zero-Flash persistent rules per domain</li>
+            <li data-i18n="pro2">Smart Auto-Blur (Emails, $, Cards, Phones, API Keys)</li>
+            <li data-i18n="pro3">Adjustable blur intensity, Pause toggle &amp; JSON export</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3 data-i18n="supportTierTitle">Optional Support</h3>
+          <div class="price" data-i18n="supportPrice">Donate</div>
+          <ul>
+            <li data-i18n="sup1">Zero ads, zero tracking, zero subscriptions</li>
+            <li data-i18n="sup2">Built as an independent developer tool</li>
+            <li data-i18n="sup3">Optional contribution if it saves you on calls</li>
+          </ul>
+          <a
+            id="supportLink"
+            href="https://ko-fi.com/juanwar89"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary full"
+            data-i18n="buyNowBtn"
+          >
+            Support this project ♥
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>ZeroFlash Blur • Privacy-first browser utility</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroFlash Blur — Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="brand">
+          <img src="../icons/icon48.png" alt="ZeroFlash" />
+          <div>
+            <h1>ZeroFlash Blur</h1>
+            <p class="subtitle">Screen Share &amp; Demo Privacy Settings</p>
+          </div>
+        </div>
+        <span id="planPill" class="pill pill-free">FREE</span>
+      </header>
+
+      <!-- Privacy Behavior Card -->
+      <section class="card">
+        <h2>Privacy &amp; Detection Preferences</h2>
+
+        <label class="toggle-item">
+          <div>
+            <div class="item-title">Hover-to-Peek on Blurred Elements</div>
+            <div class="muted">
+              Keep OFF during live Zoom/Meet screen shares. Useful only for local editing.
+            </div>
+          </div>
+          <input id="hoverPeekToggle" type="checkbox" class="switch" />
+        </label>
+
+        <div class="divider"></div>
+
+        <div>
+          <div class="item-title">Default Smart Auto-Blur Categories</div>
+          <div class="det-grid">
+            <label class="check-card"><input type="checkbox" data-det="email" /> Emails</label>
+            <label class="check-card"><input type="checkbox" data-det="currency" /> Currency / Balances</label>
+            <label class="check-card"><input type="checkbox" data-det="card" /> Credit Cards (Luhn)</label>
+            <label class="check-card"><input type="checkbox" data-det="phone" /> Phone Numbers</label>
+            <label class="check-card"><input type="checkbox" data-det="secret" /> API Keys &amp; Tokens</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Saved Site Rules -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <h2>Protected Sites &amp; Saved Rules</h2>
+            <p class="muted">Manage domains with Zero-Flash reload protection or saved selectors.</p>
+          </div>
+          <div class="btn-group">
+            <button id="exportBtn" class="btn btn-secondary">Export JSON</button>
+            <label class="btn btn-secondary file-btn">
+              Import JSON
+              <input id="importInput" type="file" accept="application/json" hidden />
+            </label>
+          </div>
+        </div>
+
+        <div id="statusMsg" class="msg hidden"></div>
+        <div id="sitesList" class="sites-list"></div>
+      </section>
+
+      <!-- About & Optional Support -->
+      <section class="card">
+        <h2>About &amp; Optional Support</h2>
+        <p class="muted">
+          ZeroFlash Blur is 100% free and runs locally in your browser—no data leaves your device.
+          If it saves you from leaks on calls or recordings, you can optionally support the project.
+        </p>
+        <a
+          id="supportBtn"
+          class="btn btn-secondary support-btn"
+          href="https://ko-fi.com/juanwar89"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Support this free project ♥</a>
+      </section>
+    </main>
+
+    <script src="../shared/common.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

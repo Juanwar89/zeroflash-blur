@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroFlash Blur</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="brand">
+          <img src="../icons/icon32.png" alt="ZeroFlash" class="brand-icon" />
+          <span class="brand-name">ZeroFlash</span>
+          <span id="planBadge" class="badge badge-free" data-i18n="editionBadge">FREE</span>
+        </div>
+        <div class="topbar-actions">
+          <button id="langToggle" class="icon-btn" title="Switch language">ES</button>
+          <button id="openOptionsBtn" class="icon-btn" title="Settings">⚙</button>
+        </div>
+      </header>
+
+      <!-- Active Site Bar -->
+      <section class="site-bar">
+        <div id="siteHost" class="site-host">Loading...</div>
+        <div id="siteStats" class="site-stats">
+          <span><strong id="manualCount">0</strong> <span data-i18n="manualLabel">Manual</span></span>
+          <span class="sep">•</span>
+          <span><strong id="autoCount">0</strong> <span data-i18n="autoLabel">Auto</span></span>
+        </div>
+      </section>
+
+      <div id="unsupportedNotice" class="notice hidden" data-i18n="unsupportedPage">
+        Chrome internal page (cannot inject)
+      </div>
+
+      <!-- Free Core Actions -->
+      <section id="controlsSection" class="card">
+        <button id="pickBtn" class="btn btn-primary">
+          <span class="btn-icon">◎</span>
+          <span id="pickBtnText" data-i18n="pickBtn">Click to Blur Elements</span>
+          <kbd>Alt+Shift+B</kbd>
+        </button>
+
+        <div class="btn-row">
+          <button id="panicBtn" class="btn btn-secondary">
+            <span id="panicBtnText" data-i18n="panicBtn">Panic Shield</span>
+          </button>
+          <button id="pauseBtn" class="btn btn-secondary">
+            <span id="pauseBtnText" data-i18n="pauseBtn">Pause All</span>
+          </button>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-header">
+            <label for="blurRange" data-i18n="blurIntensity">Blur Intensity</label>
+            <div class="slider-right">
+              <span id="blurVal">10px</span>
+              <button id="clearBtn" class="link-btn" data-i18n="clearBtn">Clear Page</button>
+            </div>
+          </div>
+          <input id="blurRange" type="range" min="4" max="24" step="1" value="10" />
+        </div>
+      </section>
+
+      <!-- Zero-Flash Site Automation -->
+      <section id="siteRulesSection" class="card">
+        <div class="section-head">
+          <span class="section-title" data-i18n="siteRulesTitle">Zero-Flash Site Rules</span>
+        </div>
+
+        <label class="toggle-row">
+          <div class="toggle-copy">
+            <div class="toggle-title" data-i18n="autoProtectLabel">Auto-protect on reload</div>
+            <div class="toggle-sub" data-i18n="autoProtectSub">Instant CSS blur before first paint</div>
+          </div>
+          <input id="autoProtectToggle" type="checkbox" class="switch" />
+        </label>
+
+        <label class="toggle-row">
+          <div class="toggle-copy">
+            <div class="toggle-title" data-i18n="autoDetectLabel">Auto-blur sensitive data</div>
+            <div class="toggle-sub" data-i18n="autoDetectSub">Emails, balances, cards &amp; API keys</div>
+          </div>
+          <input id="autoDetectToggle" type="checkbox" class="switch" />
+        </label>
+
+        <div id="detectorChips" class="chips hidden">
+          <button type="button" class="chip" data-det="email" data-i18n="detEmail">Emails</button>
+          <button type="button" class="chip" data-det="currency" data-i18n="detCurrency">$ Balances</button>
+          <button type="button" class="chip" data-det="card" data-i18n="detCard">Cards</button>
+          <button type="button" class="chip" data-det="phone" data-i18n="detPhone">Phones</button>
+          <button type="button" class="chip" data-det="secret" data-i18n="detSecret">API Keys</button>
+        </div>
+      </section>
+
+      <a
+        id="supportLink"
+        class="support-link"
+        href="https://ko-fi.com/juanwar89"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="supportLink"
+      >Support this free project ♥</a>
+    </div>
+
+    <script src="../shared/common.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "ZeroFlash Blur — Screen Share Privacy",
+  "short_name": "ZeroFlash Blur",
+  "version": "1.0.1",
+  "description": "Blur sensitive info on calls & demos without data flashes on reload or breaking web apps.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service_worker.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "ZeroFlash Blur",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "toggle-picker": {
+      "suggested_key": {
+        "default": "Alt+Shift+B"
+      },
+      "description": "Toggle click-to-blur element picker"
+    },
+    "toggle-panic": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Toggle instant full-page privacy shield"
+    }
+  }
+}

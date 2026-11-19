@@ -1,0 +1,145 @@
+/* ZeroFlash Blur - Non-destructive privacy styles */
+
+:root {
+  --zf-blur-px: 10px;
+}
+
+/* Preload cloak only applied briefly on protected sites during initial scan */
+html.zf-scanning body {
+  opacity: 0 !important;
+}
+
+/* Active blur states (skipped when extension is temporarily paused) */
+html:not([data-zf-paused="true"]) [data-zf-manual-blur="true"],
+html:not([data-zf-paused="true"]) [data-zf-auto-blur] {
+  filter: blur(var(--zf-blur-px, 10px)) !important;
+  transition: filter 120ms ease !important;
+}
+
+/* Prevent blurred images/inputs from leaking sharp focus rings or alt text previews */
+html:not([data-zf-paused="true"]) [data-zf-manual-blur="true"],
+html:not([data-zf-paused="true"]) [data-zf-auto-blur] {
+  user-select: none !important;
+}
+
+/* Optional hover-to-peek (disabled by default for screen-share safety) */
+html:not([data-zf-paused="true"])[data-zf-peek="true"] [data-zf-manual-blur="true"]:hover,
+html:not([data-zf-paused="true"])[data-zf-peek="true"] [data-zf-auto-blur]:hover {
+  filter: blur(0px) !important;
+}
+
+/* Inline redaction highlight for mixed-text paragraphs (Zero DOM mutation) */
+html:not([data-zf-paused="true"]) ::highlight(zf-sensitive) {
+  background-color: #475569;
+  color: transparent;
+}
+
+/* Picker hover frame (uses fixed overlay so host layout never shifts) */
+#zf-picker-highlight {
+  position: fixed !important;
+  pointer-events: none !important;
+  z-index: 2147483645 !important;
+  border: 2px solid #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.14) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.4) !important;
+  transition: top 50ms ease, left 50ms ease, width 50ms ease, height 50ms ease !important;
+  display: none;
+}
+
+#zf-picker-highlight.zf-is-blurred {
+  border-color: #f43f5e !important;
+  background: rgba(244, 63, 94, 0.14) !important;
+}
+
+/* Floating picker HUD */
+#zf-picker-hud {
+  all: initial !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 10px 14px !important;
+  border-radius: 999px !important;
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 10px 28px rgba(2, 6, 23, 0.45), 0 0 0 1px rgba(56, 189, 248, 0.35) !important;
+}
+
+#zf-picker-hud .zf-hud-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #38bdf8 !important;
+  display: inline-block !important;
+}
+
+#zf-picker-hud button {
+  all: initial !important;
+  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #f8fafc !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+#zf-picker-hud button:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* Instant Full-Tab Panic Privacy Shield */
+#zf-panic-shield {
+  all: initial !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  background: rgba(15, 23, 42, 0.86) !important;
+  backdrop-filter: blur(22px) !important;
+  -webkit-backdrop-filter: blur(22px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  color: #f8fafc !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  text-align: center !important;
+  padding: 24px !important;
+}
+
+#zf-panic-shield .zf-shield-title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+#zf-panic-shield .zf-shield-sub {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+}
+
+#zf-panic-shield button {
+  all: initial !important;
+  cursor: pointer !important;
+  margin-top: 8px !important;
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 9px 18px !important;
+  border-radius: 999px !important;
+}
+
+#zf-panic-shield button:hover {
+  background: #7dd3fc !important;
+}
